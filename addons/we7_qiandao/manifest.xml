@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="">
+	<application setting="false">
+		<name><![CDATA[签到系统]]></name>
+		<identifie><![CDATA[ewei_shopping_plugin_notice]]></identifie>
+		<version><![CDATA[1.0]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[微商城公告]]></ability>
+		<description><![CDATA[微商城公告]]></description>
+		<author><![CDATA[微擎团队]]></author>
+		<url><![CDATA[]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+		<supports>
+			<item type="app" />
+		</supports>
+		<plugin-main name="ewei_shopping" />
+	</platform>
+	<bindings>
+        <menu>
+            <entry title="公告设置" do="notice" />
+        </menu>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[
+	CREATE TABLE IF NOT EXISTS `ims_shopping_notice` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `content` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+	]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

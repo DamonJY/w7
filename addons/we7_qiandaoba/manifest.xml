@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[签到]]></name>
+		<identifie><![CDATA[we7_qiandaoba]]></identifie>
+		<version><![CDATA[1.1]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[最简单的签到系统]]></ability>
+		<description><![CDATA[教初学者如何快速开发一个微擎模块.]]></description>
+		<author><![CDATA[Damon]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="unsubscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="enter" />
+		</subscribes>
+		<handles>
+			<message type="text" />
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="enter" />
+		</handles>
+		<rule embed="true" />
+	</platform>
+    <bindings>
+		<cover call="getRuleMenus">
+			<entry title="签到首页" do="store" state="" direct="true" />
+		</cover>
+		<menu call="getMenus">
+			<entry title="分类管理" do="category" state="" direct="false" />
+		</menu>
+		<home call="getHomes">
+			<entry title="便利店首页" do="store" state="" direct="true" />
+		</home>
+		<profile call="getProfiles">
+			<entry title="便利店订单" do="orders" state="" direct="false" />
+		</profile>
+		<shortcut call="getShortcuts">
+			<entry title="便利店订单" do="orders" state="" direct="false" />
+		</shortcut>
+		<rule>
+			<entry title="规则" do="rule" state="" direct="false" />
+		</rule>
+	</bindings>
+    <install><![CDATA[
+-- phpMyAdmin SQL Dump
+-- version 
+
+
+
+--
+-- 表结构   `ims_we7_qiandaoba_user`
+--
+
+
+CREATE TABLE IF NOT EXISTS `ims_we7_qiandaoba_user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL,
+  `start_time` int(10) NOT NULL,
+  `end_time` int(10) NOT NULL,
+  `jifen` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+    ]]></install>
+    <uninstall><![CDATA[
+DROP TABLE IF EXISTS `ims_we7_qiandaoba_user`;
+    
+    ]]></uninstall>
+    <upgrade><![CDATA[]]></upgrade>
+</manifest>

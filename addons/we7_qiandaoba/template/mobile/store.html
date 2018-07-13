@@ -1,0 +1,34 @@
+{template 'common/header'}
+<style>
+	ul li{
+		list-style-type: none;
+	}
+</style>
+
+<nav class="navbar navbar-default " role="navigation">
+	<div class="container" style="width: 100%; ">
+		<h3 style="position: relative; text-align: center;">
+			<span>签到吧</span>
+		</h3>
+	</div>
+</nav>
+
+
+
+
+{loop $info $k $v}
+<ul>
+	<li>ID：{$v['id']}</li>
+	<li>姓名：{$v['name']}</li>
+	<li>签到时间：{php echo date('Y-m-d H:i:s', $v['start_time'])}</li>
+	<li>积分：{$v['jifen']}</li>
+
+</ul>
+
+{if strtotime( date('Y-m-d'), time()) > $v['start_time']}
+<a class="btn btn-success" href="{php echo $this->createMobileUrl('updateJifen', array('id' => $activity['id']))}">签到</a>
+{else}
+<a class="btn btn-success" disabled >已签到</a>
+{/if}
+{/loop}
+{template 'common/footer'}
